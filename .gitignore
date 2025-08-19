@@ -1,0 +1,28 @@
+# Node
+node_modules
+dist
+.env
+.env.*.local
+
+# Prisma
+prisma/dev.db
+prisma/dev.db-journal
+/src/generated/prisma
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Editor
+.vscode/
+.idea/
+
+# Docker
+notes-pg-data
+
+# Sistema
+.DS_Store
+Thumbs.db
