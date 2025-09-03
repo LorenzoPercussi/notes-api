@@ -1,4 +1,3 @@
-// src/http/middlewares/validate.ts
 import { ZodError } from "zod";
 import type { ZodObject } from "zod";
 import type { RequestHandler } from "express";

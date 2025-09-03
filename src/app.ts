@@ -4,7 +4,7 @@ import cors from "cors";
 import healthRouter from "./http/routes/health.routes";
 import authRouter from "./http/routes/auth.routes";
 import notesRouter from "./http/routes/notes.routes";
-
+import errorHandler from "./http/middlewares/error.handler";
 export const app = express();
 
 app.use(express.json());
@@ -15,12 +15,9 @@ app.use("/auth", authRouter);
 app.use("/notes", notesRouter);
 
 app.use((req, res) => {
-  res.status(404).json({
-    code: "NOT_FOUND",
-    message: `Rota ${req.method} ${req.originalUrl} não encontrada`,
-  });
+  res.status(404).json({ code: "NOT_FOUND", message: "Rota não encontrada" });
 });
-
+app.use(errorHandler);
 app.use((err: any, req: express.Request, res: express.Response, _next: express.NextFunction) => {
   const status =
     typeof err?.status === "number"
